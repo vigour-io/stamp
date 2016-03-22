@@ -1,0 +1,28 @@
+{
+  "name": "vigour-stamp",
+  "version": "0.0.1",
+  "description": "generates unique stamps for changes, possiblity to observe progress of stamps",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node test | tap-difflet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vigour-io/stamp.git"
+  },
+  "keywords": [
+    "class",
+    "prototype",
+    "base"
+  ],
+  "devDependencies": {
+    "tape": "^4.4.0",
+    "tap-difflet": "0.4.0"
+  },
+  "author": "jim de beer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vigour-io/stamp/issues"
+  },
+  "homepage": "https://github.com/vigour-io/stamp#readme"
+}
