@@ -15,4 +15,8 @@ vstamp.on(stamp, function () {
 
 // fires the onclose listener
 vstamp.close(stamp)
+
+var parsed = vstamp.parse(stamp)
+// returns a parsed stamp { type: 'click', val: 1 }
+
 ```

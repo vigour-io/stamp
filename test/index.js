@@ -13,3 +13,19 @@ test('create stamps', function (t) {
     t.equal(val, result, label + ' stamp generates "' + result + '"')
   }
 })
+
+test('parse stamps', function (t) {
+  t.plan(6)
+  parse('source|type-val', { source: 'source', type: 'type', val: 'val' })
+  parse('source|val', { source: 'source', val: 'val' })
+  parse(
+    'source-source|type|type-val-val|val',
+    { source: 'source-source', type: 'type|type', val: 'val-val|val' }
+  )
+  parse('source-source|val', { source: 'source-source', val: 'val' })
+  parse('val', { val: 'val' })
+  parse('type-val', { val: 'val', type: 'type' })
+  function parse (val, result) {
+    t.deepEqual(vstamp.parse(val), result, '"' + val + '" parsed correctly')
+  }
+})
