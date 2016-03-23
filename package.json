@@ -11,13 +11,13 @@
     "url": "git+https://github.com/vigour-io/stamp.git"
   },
   "keywords": [
-    "class",
-    "prototype",
-    "base"
+    "change",
+    "stamp"
   ],
   "devDependencies": {
     "tape": "^4.4.0",
-    "tap-difflet": "0.4.0"
+    "tap-difflet": "0.4.0",
+    "vigour-performance": "^1.0.0"
   },
   "author": "jim de beer",
   "license": "ISC",
