@@ -1,16 +1,18 @@
 # vigour-stamp
-Generates unique stamps for change, possiblity to observe progress of stamps
+Generates unique stamps for change, listen to close event
 
 ```javascript
 var vstamp = require('vigour-stamp')
 
-vstamp.on('new', function (stamp) {})
-// vstamp.on('new', function (stamp) {}, id, passon)
-vstamp.on('close', function (stamp, //passon) {})
-
 // vstamp.create(type, source, override)
+// results in click-1
 var stamp = vstamp.create('click')
-// results in 'click-1'
 
+// fires when a stamp closes (is handled)
+vstamp.on(stamp, function () {
+
+})
+
+// fires the onclose listener
 vstamp.close(stamp)
 ```
