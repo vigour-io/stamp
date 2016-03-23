@@ -1,4 +1,6 @@
 # vigour-stamp
+[![Build Status](https://travis-ci.org/vigour-io/stamp.svg?branch=master)](https://travis-ci.org/vigour-io/stamp)
+
 Generates unique stamps for change, listen to close event
 
 ```javascript
