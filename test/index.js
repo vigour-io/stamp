@@ -37,5 +37,13 @@ test('on complete listeners', function (t) {
   vstamp.on(stamp, () => cnt++)
   vstamp.close(stamp)
   t.equal(cnt, 2, '2 listeners fired')
-  t.equal(Object.keys(vstamp._on).length, 0, 'emptied _on store')
+  t.equal(Object.keys(vstamp._on).length, 0, 'removed listeners')
+})
+
+test('remove listeners', function (t) {
+  t.plan(1)
+  var stamp = vstamp.create()
+  vstamp.on(stamp, () => {})
+  vstamp.remove(stamp)
+  t.equal(Object.keys(vstamp._on).length, 0, 'removed listeners')
 })

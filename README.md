@@ -19,4 +19,7 @@ vstamp.close(stamp)
 var parsed = vstamp.parse(stamp)
 // returns a parsed stamp { type: 'click', val: 1 }
 
+// remove all listeners
+vstamp.remove(stamp)
+
 ```
