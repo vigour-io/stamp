@@ -1,7 +1,6 @@
 'use strict'
 const vstamp = require('../')
 const test = require('tape')
-const perf = require('vigour-performance').run
 
 test('create stamps', function (t) {
   t.plan(4)
@@ -28,4 +27,15 @@ test('parse stamps', function (t) {
   function parse (val, result) {
     t.deepEqual(vstamp.parse(val), result, '"' + val + '" parsed correctly')
   }
+})
+
+test('on complete listeners', function (t) {
+  t.plan(2)
+  var stamp = vstamp.create()
+  var cnt = 0
+  vstamp.on(stamp, () => cnt++)
+  vstamp.on(stamp, () => cnt++)
+  vstamp.close(stamp)
+  t.equal(cnt, 2, '2 listeners fired')
+  t.equal(Object.keys(vstamp._on).length, 0, 'emptied _on store')
 })
