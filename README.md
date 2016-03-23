@@ -12,7 +12,5 @@ vstamp.on('close', function (stamp, //passon) {})
 var stamp = vstamp.create('click')
 // results in 'click-1'
 
-// vstamp.stamps = { 'click-1': true } // can get info like waiting for example
-
 vstamp.close(stamp)
 ```
