@@ -30,7 +30,7 @@ test('parse stamps', function (t) {
 })
 
 test('on complete listeners', function (t) {
-  t.plan(3)
+  t.plan(2)
   var stamp = vstamp.create()
   var cnt = 0
   vstamp.on(stamp, () => cnt++)
@@ -38,9 +38,6 @@ test('on complete listeners', function (t) {
   vstamp.close(stamp)
   t.equal(cnt, 2, '2 listeners fired')
   t.equal(Object.keys(vstamp._on).length, 0, 'removed listeners')
-  stamp = vstamp.create()
-  vstamp.on(stamp, (arg) => t.equal(arg, 'passed'))
-  vstamp.close(stamp, [ 'passed' ])
 })
 
 test('remove listeners', function (t) {
