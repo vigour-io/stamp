@@ -1,6 +1,6 @@
 {
   "name": "vigour-stamp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "generates unique stamps for changes, possiblity to observe progress of stamps",
   "main": "lib/index.js",
   "scripts": {
@@ -20,7 +20,14 @@
   },
   "browserify": {
     "transform": [
-      ["babelify", { "presets": ["es2015"] }]
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
     ]
   },
   "devDependencies": {
