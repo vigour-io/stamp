@@ -13,17 +13,33 @@ test('create stamps', function (t) {
   }
 })
 
+test('parse src', function (t) {
+  var stamp = vstamp.create('click', 'mac')
+  t.equal(vstamp.src(stamp), 'mac', 'extracts src')
+  stamp = vstamp.create('click')
+  stamp = vstamp.setSrc(stamp, 'iphone')
+  t.equal(vstamp.src(stamp), 'iphone', 'extracts src after setSrc')
+  t.equal(vstamp.hasSrc(stamp), 6, 'correct hasSrc')
+  t.end()
+})
+
+test('parse type', function (t) {
+  var stamp = vstamp.create('click', 'mac')
+  t.equal(vstamp.type(stamp), 'click', 'extracts type')
+  t.end()
+})
+
 test('parse stamps', function (t) {
   t.plan(6)
-  parse('source|type-val', { source: 'source', type: 'type', val: 'val' })
-  parse('source|val', { source: 'source', val: 'val' })
+  parse('source|type-val', { src: 'source', type: 'type', val: 'val' })
+  parse('source|val', { src: 'source', val: 'val' })
   parse(
     'source-source|type|type-val-val|val',
-    { source: 'source-source', type: 'type|type', val: 'val-val|val' }
+    { src: 'source-source', val: 'val-val|val', type: 'type|type' }
   )
-  parse('source-source|val', { source: 'source-source', val: 'val' })
+  parse('source-source|val', { src: 'source-source', val: 'val' })
   parse('val', { val: 'val' })
-  parse('type-val', { val: 'val', type: 'type' })
+  parse('type-val', { type: 'type', val: 'val' })
   function parse (val, result) {
     t.deepEqual(vstamp.parse(val), result, '"' + val + '" parsed correctly')
   }
