@@ -63,5 +63,3 @@ test('remove listeners', function (t) {
   vstamp.remove(stamp)
   t.equal(Object.keys(vstamp._on).length, 0, 'removed listeners')
 })
-
-// add context
