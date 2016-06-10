@@ -70,6 +70,6 @@ test('on complete listeners -- on close', function (t) {
   var cnt = 0
   vstamp.on(stamp, () => vstamp.on(stamp, () => ++cnt))
   vstamp.close(stamp)
-  t.equal(cnt, 2, '2 listeners fired')
+  t.equal(cnt, 1, 'listener fired')
   t.equal(Object.keys(vstamp._on).length, 0, 'removed listeners')
 })
