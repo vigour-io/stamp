@@ -56,6 +56,14 @@ test('on complete listeners', function (t) {
   t.equal(Object.keys(vstamp._on).length, 0, 'removed listeners')
 })
 
+test('on- after listeners', function (t) {
+  var stamp = vstamp.create()
+  vstamp.after(stamp, () => t.end())
+  vstamp.on(stamp, () => 'lulz')
+  vstamp.close(stamp)
+  t.equal(Object.keys(vstamp._after).length, 0, 'removed listeners')
+})
+
 test('remove listeners', function (t) {
   t.plan(1)
   var stamp = vstamp.create()
