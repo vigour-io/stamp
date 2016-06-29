@@ -57,9 +57,14 @@ test('on complete listeners', function (t) {
 })
 
 test('on- done listeners', function (t) {
+  t.plan(3)
   var stamp = vstamp.create()
-  vstamp.done(stamp, () => t.end())
-  vstamp.on(stamp, () => t.ok(true, 'fired "on" first'))
+  var onFired
+  vstamp.done(stamp, () => t.ok(onFired, 'fired "done" after on'))
+  vstamp.on(stamp, () => {
+    onFired = true
+    t.ok(true, 'fired "on" first')
+  })
   vstamp.close(stamp)
   t.equal(Object.keys(vstamp._done).length, 0, 'removed listeners')
 })
