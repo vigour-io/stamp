@@ -56,12 +56,12 @@ test('on complete listeners', function (t) {
   t.equal(Object.keys(vstamp._on).length, 0, 'removed listeners')
 })
 
-test('on- after listeners', function (t) {
+test('on- done listeners', function (t) {
   var stamp = vstamp.create()
-  vstamp.after(stamp, () => t.end())
-  vstamp.on(stamp, () => 'lulz')
+  vstamp.done(stamp, () => t.end())
+  vstamp.on(stamp, () => t.ok(true, 'fired "on" first'))
   vstamp.close(stamp)
-  t.equal(Object.keys(vstamp._after).length, 0, 'removed listeners')
+  t.equal(Object.keys(vstamp._done).length, 0, 'removed listeners')
 })
 
 test('remove listeners', function (t) {
