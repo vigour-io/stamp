@@ -22,6 +22,11 @@ vstamp.on(stamp, function () {
 
 })
 
+// fires after on listeners, when a stamp closes
+vstamp.done(stamp, function () {
+
+})
+
 // fires the onclose listener
 vstamp.close(stamp)
 
