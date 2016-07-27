@@ -30,13 +30,14 @@ test('parse type', function (t) {
 })
 
 test('parse stamps - val', function (t) {
-  t.plan(8)
+  t.plan(9)
   const stamp = vstamp.create('special-type-of-stamp', 1, 222132123123.001)
   t.equal(vstamp.type(stamp), 'special-type-of-stamp', 'correct type')
   t.equal(vstamp.parse(stamp).type, 'special-type-of-stamp', 'correct type (from parse)')
   t.equal(vstamp.parse(stamp).val, '222132123123.001', 'correct val')
   t.equal(vstamp.val(stamp), '222132123123.001', 'correct val')
   t.equal(vstamp.val(100), 100, 'correct val when not a string')
+  t.equal(vstamp.val('hello'), 'hello', 'correct val when a string but no src and no type')
   const stamp2 = vstamp.create(void 0, 1, 222132123123.001)
   t.equal(vstamp.val(stamp2), '222132123123.001', 'correct val when no type')
   const stamp3 = vstamp.create('special-type-of-stamp', void 0, 222132123123.001)
