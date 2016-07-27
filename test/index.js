@@ -29,13 +29,23 @@ test('parse type', function (t) {
   t.end()
 })
 
+test('parse stamps - val', function (t) {
+  t.plan(5)
+  const stamp = vstamp.create('special-type-of-stamp', 1, 222132123123.001)
+  t.equal(vstamp.type(stamp), 'special-type-of-stamp', 'correct type')
+  t.equal(vstamp.parse(stamp).type, 'special-type-of-stamp', 'correct type (from parse)')
+  t.equal(vstamp.parse(stamp).val, '222132123123.001', 'correct val')
+  t.equal(vstamp.val(stamp), '222132123123.001', 'correct val')
+  t.equal(vstamp.val(100), 100, 'correct val when not a string')
+})
+
 test('parse stamps', function (t) {
   t.plan(6)
   parse('source|type-val', { src: 'source', type: 'type', val: 'val' })
   parse('source|val', { src: 'source', val: 'val' })
   parse(
     'source-source|type|type-val-val|val',
-    { src: 'source-source', val: 'val-val|val', type: 'type|type' }
+    { src: 'source-source', val: 'val|val', type: 'type|type-val' }
   )
   parse('source-source|val', { src: 'source-source', val: 'val' })
   parse('val', { val: 'val' })
