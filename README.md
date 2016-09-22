@@ -36,4 +36,9 @@ var parsed = vstamp.parse(stamp)
 // remove all listeners
 vstamp.remove(stamp)
 
+// to debug use
+const debug = require('vstamp/debug')
+debug(vstamp)
+// this will throw errors when stamps are created while others are still open
+
 ```
