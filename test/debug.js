@@ -3,6 +3,8 @@ const test = require('tape')
 test('debug', function (t) {
   const vstamp = require('../')
   require('../debug')(vstamp)
+  const stamp1 = vstamp.create()
+  vstamp.close(stamp1)
   const stamp = vstamp.create()
   try {
     vstamp.create()
