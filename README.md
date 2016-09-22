@@ -11,26 +11,22 @@
 Generates unique stamps for change, listens to close events
 
 ```javascript
-var vstamp = require('vigour-stamp')
+const vstamp = require('vigour-stamp')
 
 // vstamp.create(type, source, override)
 // results in click-1
-var stamp = vstamp.create('click')
+const stamp = vstamp.create('click')
 
 // fires when a stamp closes (is handled)
-vstamp.on(stamp, function () {
-
-})
+vstamp.on(stamp, () => console.log('closing'))
 
 // fires after on listeners, when a stamp closes
-vstamp.done(stamp, function () {
-
-})
+vstamp.done(stamp, () => console.log('closed'))
 
 // fires the onclose listener
 vstamp.close(stamp)
 
-var parsed = vstamp.parse(stamp)
+const parsed = vstamp.parse(stamp)
 // returns a parsed stamp { type: 'click', val: 1 }
 
 // remove all listeners
