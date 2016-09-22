@@ -1,6 +1,6 @@
 {
   "name": "vigour-stamp",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "generates unique stamps for changes, possiblity to observe progress of stamps",
   "main": "lib/index.js",
   "scripts": {
