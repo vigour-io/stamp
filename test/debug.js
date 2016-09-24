@@ -9,7 +9,7 @@ test('debug', function (t) {
   try {
     vstamp.create()
   } catch (e) {
-    t.same(e.message, 'other stamps are still in progress: ' + stamp, 'throws inProgress error')
+    t.same(e.message, (stamp + 1) + ' other stamps are still in progress: ' + stamp, 'throws inProgress error')
     t.end()
   }
 })
