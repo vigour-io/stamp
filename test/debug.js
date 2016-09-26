@@ -13,5 +13,6 @@ test('debug', function (t) {
   }
   vstamp.create(false, false, false, true)
   t.ok(true, 'ignore option works')
+  t.same(vstamp.inProgress, [ stamp ], 'correct vstamp.inProgress')
   t.end()
 })
