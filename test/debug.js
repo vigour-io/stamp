@@ -10,6 +10,8 @@ test('debug', function (t) {
     vstamp.create()
   } catch (e) {
     t.same(e.message, (stamp + 1) + ' other stamps are still in progress: ' + stamp, 'throws inProgress error')
-    t.end()
   }
+  vstamp.create(false, false, false, true)
+  t.ok(true, 'ignore option works')
+  t.end()
 })
