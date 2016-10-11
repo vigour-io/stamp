@@ -2,12 +2,12 @@
 const test = require('tape')
 
 test('version resolve', function (t) {
-  global.__vigourStamp__ = { version: '1.2.11' }
+  global.__bstamp__ = { version: '1.2.11' }
   // need ot say incompatibvle as well how to test?
-  const previous = global.__vigourStamp__
+  const previous = global.__bstamp__
   const vstamp = require('../')
   t.equal(vstamp, require('../'), 'choose newsest version')
-  t.equal(vstamp, global.__vigourStamp__, 'overrides global')
+  t.equal(vstamp, global.__bstamp__, 'overrides global')
   for (let i in vstamp) {
     t.ok(previous[i] === vstamp[i], `"${i}" on previous from current`)
   }

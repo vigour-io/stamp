@@ -1,18 +1,18 @@
 'use strict'
 const test = require('tape')
 test('debug', function (t) {
-  const vstamp = require('../')
-  require('../debug')(vstamp)
-  const stamp1 = vstamp.create()
-  vstamp.close(stamp1)
-  const stamp = vstamp.create()
+  const bstamp = require('../')
+  require('../debug')(bstamp)
+  const stamp1 = bstamp.create()
+  bstamp.close(stamp1)
+  const stamp = bstamp.create()
   try {
-    vstamp.create()
+    bstamp.create()
   } catch (e) {
     t.same(e.message, (stamp + 1) + ' other stamps are still in progress: ' + stamp, 'throws inProgress error')
   }
-  vstamp.create(false, false, false, true)
+  bstamp.create(false, false, false, true)
   t.ok(true, 'ignore option works')
-  t.same(vstamp.inProgress, [ stamp ], 'correct vstamp.inProgress')
+  t.same(bstamp.inProgress, [ stamp ], 'correct bstamp.inProgress')
   t.end()
 })
