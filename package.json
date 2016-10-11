@@ -1,6 +1,6 @@
 {
   "name": "brisky-stamp",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "generates unique stamps for changes, possiblity to observe progress of stamps",
   "main": "lib/index.js",
   "scripts": {
@@ -22,7 +22,9 @@
     "bubleify": "0.5.1"
   },
   "browserify": {
-    "transform": [ "bubleify" ]
+    "transform": [
+      "bubleify"
+    ]
   },
   "devDependencies": {
     "tape": "^4.4.0",
