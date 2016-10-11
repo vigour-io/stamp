@@ -13,9 +13,9 @@ Generates unique stamps for change, listens to close events
 ```javascript
 const briskyStamp = require('brisky-stamp')
 
-// vstamp.create(type, source, override)
+// briskyStamp.create(type, source, override)
 // results in click-1
-const stamp = vstamp.create('click')
+const stamp = briskyStamp.create('click')
 
 // fires when a stamp closes (is handled)
 briskyStamp.on(stamp, () => console.log('closing'))
