@@ -25,3 +25,4 @@ test-runner.html
 resultlog.txt
 .npmrc
 README.html
+npm-debug.log*
