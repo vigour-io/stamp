@@ -29,7 +29,7 @@ const parsed = briskyStamp.parse(stamp)
 briskyStamp.remove(stamp)
 
 // to debug use
-const debug = require('briskyStamp/debug')
+const debug = require('brisky-stamp/debug')
 debug(briskyStamp)
 // this will throw errors when stamps are created while others are still open
 
