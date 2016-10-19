@@ -30,7 +30,7 @@
     "tape": "^4.4.0",
     "tap-difflet": "0.4.0",
     "vigour-performance": "^1.0.0",
-    "standard": "^7.0.1",
+    "standard": "^8.4.0",
     "nodemon": "^1.9.1",
     "coveralls": "^2.11.9",
     "istanbul": "^0.4.3",
