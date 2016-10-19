@@ -1,6 +1,6 @@
 {
   "name": "brisky-stamp",
-  "version": "1.5.8",
+  "version": "1.5.9",
   "description": "generates unique stamps for changes, possiblity to observe progress of stamps",
   "main": "lib/index.js",
   "scripts": {
