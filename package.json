@@ -1,7 +1,7 @@
 {
   "name": "brisky-stamp",
   "version": "1.5.9",
-  "description": "generates unique stamps for changes, possiblity to observe progress of stamps",
+  "description": "Generate unique meta information for change in a system",
   "main": "lib/index.js",
   "scripts": {
     "test": "node test | tap-difflet && standard",
