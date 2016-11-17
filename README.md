@@ -6,8 +6,6 @@ Generate unique meta information for change in a system
 [![npm version](https://badge.fury.io/js/brisky-stamp.svg)](https://badge.fury.io/js/brisky-stamp)
 [![Coverage Status](https://coveralls.io/repos/github/vigour-io/brisky-stamp/badge.svg?branch=master)](https://coveralls.io/github/vigour-io/brisky-stamp?branch=master)
 
-The idea is that stamp are synchronous, so you never have 2 stamps in progress at the same time in one thread
-
 ```javascript
 const briskyStamp = require('brisky-stamp')
 
@@ -31,5 +29,6 @@ briskyStamp.clear()
 const debug = require('brisky-stamp/debug')
 debug(briskyStamp)
 // this will throw errors when stamps are created while others are still open
+// idea is that stamps are synchronous, so you never have 2 stamps in progress at the same time in one thread
 briskyStamp.create(type, source, override, true) // ignores stamp creation for debugging
 ```
