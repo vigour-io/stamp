@@ -18,8 +18,8 @@ const stamp = briskyStamp.create('click')
 // fires when a stamp closes (is handled)
 briskyStamp.on(() => console.log('closing'))
 
-// fires onclose listeners
-briskyStamp.close()
+// fires stamp listeners, usefull for debugging (all stamps need to be closed)
+briskyStamp.close(stamp)
 
 const parsed = briskyStamp.parse(stamp)
 // returns a parsed stamp { type: 'click', val: 1 }
