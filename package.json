@@ -1,6 +1,6 @@
 {
   "name": "brisky-stamp",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Generate unique meta information for change in a system",
   "main": "lib/index.js",
   "scripts": {
