@@ -2,7 +2,7 @@
 const test = require('tape')
 var bstamp
 
-test('create stamps', function (t) {
+test('create stamps', t => {
   bstamp = require('../')
   t.plan(4)
   stamp('default', bstamp.cnt + 1, bstamp.create())
@@ -14,7 +14,7 @@ test('create stamps', function (t) {
   }
 })
 
-test('parse src', function (t) {
+test('parse src', t => {
   var stamp = bstamp.create('click', 'mac')
   t.equal(bstamp.src(stamp), 'mac', 'extracts src')
   stamp = bstamp.create('click')
@@ -24,13 +24,13 @@ test('parse src', function (t) {
   t.end()
 })
 
-test('parse type', function (t) {
+test('parse type', t => {
   var stamp = bstamp.create('click', 'mac')
   t.equal(bstamp.type(stamp), 'click', 'extracts type')
   t.end()
 })
 
-test('parse stamps - val', function (t) {
+test('parse stamps - val', t => {
   t.plan(9)
   const stamp = bstamp.create('special-type-of-stamp', 1, 222132123123.001)
   t.equal(bstamp.type(stamp), 'special-type-of-stamp', 'correct type')
@@ -46,7 +46,7 @@ test('parse stamps - val', function (t) {
   t.equal(bstamp.parse(stamp3).val, '222132123123.001', 'correct parse.val when no src')
 })
 
-test('parse stamps', function (t) {
+test('parse stamps', t => {
   t.plan(6)
   parse('source|type-val', { src: 'source', type: 'type', val: 'val' })
   parse('source|val', { src: 'source', val: 'val' })
@@ -62,44 +62,28 @@ test('parse stamps', function (t) {
   }
 })
 
-test('on complete listeners', function (t) {
-  t.plan(2)
-  var stamp = bstamp.create()
+test('on complete listeners', t => {
   var cnt = 0
-  bstamp.on(stamp, () => cnt++)
-  bstamp.on(stamp, () => cnt++)
-  bstamp.close(stamp)
+  bstamp.on(() => cnt++)
+  bstamp.on(() => cnt++)
+  bstamp.close()
   t.equal(cnt, 2, '2 listeners fired')
-  t.equal(Object.keys(bstamp._on).length, 0, 'removed listeners')
+  t.end()
 })
 
-test('on- done listeners', function (t) {
-  t.plan(3)
-  var stamp = bstamp.create()
-  var onFired
-  bstamp.done(stamp, () => t.ok(onFired, 'fired "done" after on'))
-  bstamp.on(stamp, () => {
-    onFired = true
-    t.ok(true, 'fired "on" first')
-  })
-  bstamp.close(stamp)
-  t.equal(Object.keys(bstamp._done).length, 0, 'removed listeners')
-})
-
-test('remove listeners', function (t) {
-  t.plan(1)
-  var stamp = bstamp.create()
-  bstamp.on(stamp, () => {})
-  bstamp.remove(stamp)
-  t.equal(Object.keys(bstamp._on).length, 0, 'removed listeners')
-})
-
-test('on complete listeners -- on close', function (t) {
-  t.plan(2)
-  var stamp = bstamp.create()
+test('remove listeners', t => {
   var cnt = 0
-  bstamp.on(stamp, () => bstamp.on(stamp, () => ++cnt))
-  bstamp.close(stamp)
+  bstamp.on(() => {})
+  bstamp.clear()
+  bstamp.close()
+  t.equal(cnt, 0, 'removed listener')
+  t.end()
+})
+
+test('on complete listeners -- on close', t => {
+  var cnt = 0
+  bstamp.on(() => bstamp.on(() => ++cnt))
+  bstamp.close()
   t.equal(cnt, 1, 'listener fired')
-  t.equal(Object.keys(bstamp._on).length, 0, 'removed listeners')
+  t.end()
 })
