@@ -4,10 +4,11 @@ var bstamp
 
 test('create stamps', t => {
   bstamp = require('../')
+  const gbstamp = global.briskystamp
   t.plan(4)
-  stamp('default', bstamp.cnt + 1, bstamp.create())
-  stamp('type', 'click-' + (bstamp.cnt + 1), bstamp.create('click'))
-  stamp('source', 'mac|' + (bstamp.cnt + 1), bstamp.create(void 0, 'mac'))
+  stamp('default', gbstamp.cnt + 1, bstamp.create())
+  stamp('type', 'click-' + (gbstamp.cnt + 1), bstamp.create('click'))
+  stamp('source', 'mac|' + (gbstamp.cnt + 1), bstamp.create(void 0, 'mac'))
   stamp('all', 'mac|click-override', bstamp.create('click', 'mac', 'override'))
   function stamp (label, result, val) {
     t.equal(val, result, label + ' stamp generates "' + result + '"')
