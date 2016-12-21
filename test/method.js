@@ -89,7 +89,7 @@ test('on complete listeners -- on close', t => {
   t.end()
 })
 
-test('on complete listeners -- on close 00 create a new one', t => {
+test('on complete listeners -- on close create a new one', t => {
   var cnt = 0
   bstamp.on(() => {
     bstamp.create()
@@ -98,5 +98,26 @@ test('on complete listeners -- on close 00 create a new one', t => {
   })
   bstamp.close()
   t.equal(cnt, 1, 'listener fired')
+  t.end()
+})
+
+test('on complete listeners -- on close add extra listeners', t => {
+  var cnt = 0
+  bstamp.on(() => {
+    bstamp.create()
+    cnt++
+    bstamp.on(() => {
+      cnt++
+    })
+    bstamp.on(() => {
+      cnt++
+    })
+    bstamp.on(() => {
+      cnt++
+    })
+    bstamp.close()
+  })
+  bstamp.close()
+  t.equal(cnt, 4, 'listener fired')
   t.end()
 })
