@@ -104,6 +104,7 @@ test('on complete listeners -- on close create a new one', t => {
 test('on complete listeners -- on close add extra listeners', t => {
   var cnt = 0
   bstamp.on(() => {
+    t.equal(bstamp.inProgress, true, 'in progress')
     bstamp.create()
     cnt++
     bstamp.on(() => {
@@ -117,7 +118,9 @@ test('on complete listeners -- on close add extra listeners', t => {
     })
     bstamp.close()
   })
+  t.equal(bstamp.inProgress, false, 'not in progress')
   bstamp.close()
+  t.equal(bstamp.inProgress, false, 'not in progress')
   t.equal(cnt, 4, 'listener fired')
   t.end()
 })
