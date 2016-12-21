@@ -121,6 +121,7 @@ test('on complete listeners -- on close add extra listeners', t => {
   t.equal(bstamp.inProgress, false, 'not in progress')
   bstamp.close()
   t.equal(bstamp.inProgress, false, 'not in progress')
+  bstamp.close()
   t.equal(cnt, 4, 'listener fired')
   t.end()
 })
