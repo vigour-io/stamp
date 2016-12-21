@@ -22,6 +22,9 @@ test('parse src', t => {
   stamp = bstamp.setSrc(stamp, 'iphone')
   t.equal(bstamp.src(stamp), 'iphone', 'extracts src after setSrc')
   t.equal(bstamp.hasSrc(stamp), 6, 'correct hasSrc')
+  t.equal(bstamp.src('client|8'), 'client')
+  t.equal(bstamp.hasSrc('client|8'), 6)
+  t.same(bstamp.parse('client|8'), { val: '8', src: 'client' })
   t.end()
 })
 
