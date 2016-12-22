@@ -9,6 +9,7 @@
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "prepublish": "npm run build",
+    "pretest": "npm run build",
     "test": "node test | tap-difflet && standard",
     "dev": "nodemon test | tap-difflet",
     "cover": "istanbul cover --report none --print detail test/index.js",
