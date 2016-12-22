@@ -40,5 +40,8 @@
   "bugs": {
     "url": "https://github.com/vigour-io/stamp/issues"
   },
-  "homepage": "https://github.com/vigour-io/stamp#readme"
+  "homepage": "https://github.com/vigour-io/stamp#readme",
+  "dependencies": {
+    "global": "^4.3.1"
+  }
 }
