@@ -1,5 +1,5 @@
-const bit = require('../')
-const old = require('../lib/old')
+// const bit = require('../')
+// const old = require('../lib/old')
 // // var stamp = bstamp.create('click', 'mac')
 // // stamp = bstamp.create('click')
 // const bit = require('../lib/bit')

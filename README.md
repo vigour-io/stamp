@@ -1,6 +1,5 @@
 # brisky-stamp
-Generate unique meta information for change in a system, uses time stamps
-- Uses highly optmized monotonic timestamps
+Generate unique meta information for change in a system, monotonic timestamps
 
 [![Build Status](https://travis-ci.org/vigour-io/brisky-stamp.svg?branch=master)](https://travis-ci.org/vigour-io/brisky-stamp)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
@@ -34,3 +33,5 @@ stamp.offset = 100 // add 100 ms to timestamps
 // check if listeners are in progress
 stamp.inProgress // true or false
 ```
+
+**note** Types only support base 36 characters - beware! (lowercase letters from the alphabet)
