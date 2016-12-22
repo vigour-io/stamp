@@ -19,14 +19,6 @@
     "stamp",
     "meta information"
   ],
-  "dependencies": {
-    "bubleify": "0.5.1"
-  },
-  "browserify": {
-    "transform": [
-      "bubleify"
-    ]
-  },
   "devDependencies": {
     "coveralls": "^2.11.9",
     "istanbul": "^0.4.3",
