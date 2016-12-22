@@ -18,18 +18,18 @@ test('parse type', t => {
 
 test('parse stamps - val', t => {
   t.plan(9)
-  const stamp = bstamp.create('special', 1, 222132123123.01)
+  const stamp = bstamp.create('special', 1, 222132123123.001)
   t.equal(bstamp.type(stamp), 'special', 'correct type')
   t.equal(bstamp.parse(stamp).type, 'special', 'correct type (from parse)')
-  t.equal(bstamp.parse(stamp).val, 222132123123.01, 'correct val')
-  t.equal(bstamp.val(stamp), 222132123123.01, 'correct val')
-  t.equal(bstamp.val(100 - bstamp.ts), 100, 'correct val when not a string')
-  t.equal(bstamp.val(222 - bstamp.ts), 222, 'correct val when a string but no src and no type')
-  const stamp2 = bstamp.create(void 0, 1, 222132123123.01)
-  t.equal(bstamp.val(stamp2), 222132123123.01, 'correct val when no type')
-  const stamp3 = bstamp.create('special-type-of-stamp', void 0, 222132123123.01)
-  t.equal(bstamp.val(stamp3), 222132123123.01, 'correct .val when no src')
-  t.equal(bstamp.parse(stamp3).val, 222132123123.01, 'correct parse.val when no src')
+  t.equal(bstamp.parse(stamp).val, 222132123123.001, 'correct val')
+  t.equal(bstamp.val(stamp), 222132123123.001, 'correct val')
+  t.equal(bstamp.val(100), 100, 'correct val when not a string')
+  t.equal(bstamp.val(222), 222, 'correct val when a string but no src and no type')
+  const stamp2 = bstamp.create(void 0, 1, 222132123123.001)
+  t.equal(bstamp.val(stamp2), 222132123123.001, 'correct val when no type')
+  const stamp3 = bstamp.create('special-type-of-stamp', void 0, 222132123123.001)
+  t.equal(bstamp.val(stamp3), 222132123123.001, 'correct .val when no src')
+  t.equal(bstamp.parse(stamp3).val, 222132123123.001, 'correct parse.val when no src')
 })
 
 test('parse stamps', t => {
