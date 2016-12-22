@@ -25,7 +25,8 @@
     "meta information"
   ],
   "files": [
-    "dist"
+    "dist",
+    "package.json"
   ],
   "devDependencies": {
     "coveralls": "^2.11.9",
