@@ -1,5 +1,5 @@
 # brisky-stamp
-Generate unique meta information for change in a system
+Generate unique meta information for change in a system, monotonic timestamps
 
 [![Build Status](https://travis-ci.org/vigour-io/brisky-stamp.svg?branch=master)](https://travis-ci.org/vigour-io/brisky-stamp)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
@@ -7,28 +7,31 @@ Generate unique meta information for change in a system
 [![Coverage Status](https://coveralls.io/repos/github/vigour-io/brisky-stamp/badge.svg?branch=master)](https://coveralls.io/github/vigour-io/brisky-stamp?branch=master)
 
 ```javascript
-const briskyStamp = require('brisky-stamp')
+const stamp = require('brisky-stamp')
 
-// briskyStamp.create(type, source, override)
-// results in click-1
-const stamp = briskyStamp.create('click')
+// stamp.create(type, source, override)
+// results in [ 946725040140, 0, 21158948 ]
+// only lowercase letters from the alphabet are supported (base(36))
+
+console.log(stamp.create('click'))
 
 // fires when a stamp closes (is handled)
-briskyStamp.on(() => console.log('closing'))
+stamp.on(() => console.log('closing'))
 
-// fires stamp listeners, usefull for debugging (all stamps need to be closed)
-briskyStamp.close(stamp)
+// fires stamp listeners
+stamp.close()
 
-const parsed = briskyStamp.parse(stamp)
+const parsed = stamp.parse(stamp)
 // returns a parsed stamp { type: 'click', val: 1 }
 
 // remove all listeners
-briskyStamp.clear()
+stamp.clear()
 
-// to debug use
-const debug = require('brisky-stamp/debug')
-debug(briskyStamp)
-// this will throw errors when stamps are created while others are still open
-// idea is that stamps are synchronous, so you never have 2 stamps in progress at the same time in one thread
-briskyStamp.create(type, source, override, true) // ignores stamp creation for debugging
+// offset internal clock
+stamp.offset = 100 // add 100 ms to timestamps
+
+// check if listeners are in progress
+stamp.inProgress // true or false
 ```
+
+**note** Types only support base 36 characters - beware! (lowercase letters from the alphabet)
