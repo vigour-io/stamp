@@ -1,7 +1,7 @@
 const bit = require('../')
 
 const s = process.memoryUsage().heapUsed / 1024 / 1024
-var i = 1e6 //clear after 1 mil
+var i = 1e6 // clear after 1 mil
 const arr = {}
 var d = Date.now()
 // while (i--) {
