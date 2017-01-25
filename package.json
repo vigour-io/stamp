@@ -8,6 +8,7 @@
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
+    "dev-browser": "budo test/index.js --live",
     "prepublish": "npm run build",
     "pretest": "npm run build",
     "test": "node test | tap-difflet && standard",
@@ -29,6 +30,7 @@
     "package.json"
   ],
   "devDependencies": {
+    "budo": "^9.4.5",
     "coveralls": "^2.11.9",
     "istanbul": "^0.4.3",
     "nodemon": "^1.9.1",
