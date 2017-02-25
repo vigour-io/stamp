@@ -11,7 +11,6 @@ const stamp = require('stamp')
 
 // stamp.create()
 // results in 946725040140
-// only lowercase letters from the alphabet are supported (base(36))
 
 // fires when a stamp closes (is handled)
 stamp.on(() => console.log('closing'))
@@ -20,7 +19,7 @@ stamp.on(() => console.log('closing'))
 stamp.close()
 
 const parsed = stamp.parse(stamp)
-// returns a parsed stamp
+// returns a valid date time stamp
 
 // remove all listeners
 stamp.clear()
