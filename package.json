@@ -1,6 +1,6 @@
 {
   "name": "stamp",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Generate unique meta information for change in a system",
   "main": "dist/index.js",
   "scripts": {
